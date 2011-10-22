@@ -44,10 +44,6 @@ module I18nTranslationHelper
           unless @i18n_fallback_locales[locale.to_sym]
             base_locale = (root_locale(locale) || locale).to_sym
             locales = [locale.to_sym, base_locale]
-            available_locales.each do |l|
-              current_base_locale = root_locale(l)
-              locales << l if current_base_locale && current_base_locale.to_sym == base_locale
-            end if respond_to?(:available_locales)
             @i18n_fallback_locales[locale.to_sym] = locales.uniq
           end
           @i18n_fallback_locales[locale.to_sym]

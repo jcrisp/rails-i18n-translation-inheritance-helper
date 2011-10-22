@@ -5,10 +5,10 @@ Installation
 ============
 
 As a plugin:
-	script/plugin install git://github.com/kipcole9/rails-i18n-translation-inheritance-helper.git
+	script/plugin install git://github.com/jcrisp/rails-i18n-translation-inheritance-helper.git
 	
 Or from git directly as a plugin to your project:
-	git submodule add git://github.com/kipcole9/rails-i18n-translation-inheritance-helper.git vendor/plugins/i18n_translation_helper
+	git submodule add git://github.com/jcrisp/rails-i18n-translation-inheritance-helper.git vendor/plugins/i18n_translation_helper
 	
 	
 Description
@@ -16,8 +16,7 @@ Description
 
 Adds a fallback chain to translation lookup in Rails i18n.
 When installed (plugin, or otherwise mixed in) the method 'translate'
-will now attempt to find a translation in a broader scope locale
-or 'sister' locals if there are any.
+will now attempt to find a translation in a broader scope locale.
 
 This means that it is more practical to have regional variations of
 locales where there are only minor differences.
@@ -26,7 +25,10 @@ This updated version defines a lookup_chain as follows:
 
 1. lookup in supplied or default locale (ie. "en-UK")
 2. then in the broader locale ("en")
-3. then any 'sister' locales ('en-GB', 'en-US', 'en-AU', ...). 
+
+IE, this for will not fall back to sister locales. It will just go from current
+locale to base locale. Aim is to let you override some of the base locale messages
+without having to translate everything.
 
 NOTE
 ===
